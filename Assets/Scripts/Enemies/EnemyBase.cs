@@ -18,6 +18,7 @@ public class EnemyBase : MonoBehaviour
         health = maxHealth;
         damage = 10;
         speed = 3;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     protected virtual void FixedUpdate()

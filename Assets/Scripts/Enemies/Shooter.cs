@@ -33,6 +33,7 @@ public class Shooter : EnemyBase
         //ReloadSpeed = 5;
         //MaxAmmo = 2;
         ammo = MaxAmmo;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
 

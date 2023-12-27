@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2027191119200440320}
   - component: {fileID: 306575554967383557}
   - component: {fileID: 620826901591135767}
+  - component: {fileID: 2039606737853505721}
   m_Layer: 0
   m_Name: BaseBullet
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 0
   timeAlive: 0
+  damage: 0
 --- !u!50 &620826901591135767
 Rigidbody2D:
   serializedVersion: 4
@@ -76,6 +78,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &2039606737853505721
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256753602121160474}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7081858514220474521
 GameObject:
   m_ObjectHideFlags: 0
