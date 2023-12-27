@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "DDJ-Game.sln"
+    "dotnet.defaultSolution": "DDJ Game.sln"
 }
