@@ -38,4 +38,17 @@ public class EnemyBase : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, lineOfSite);
     }
+
+    public void TakeDamage(int damageAmount)
+    {
+
+        Debug.Log("HIT");
+        health -= damageAmount;
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+            GameObject.Find("wincondition").GetComponent<EndGame>().KilledEnemy(this.gameObject);
+        }
+    }
 }
