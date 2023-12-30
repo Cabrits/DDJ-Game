@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 758439948837081980}
   - component: {fileID: 4102078767455844677}
   - component: {fileID: 67674843109827384}
+  - component: {fileID: 8698728326544717854}
   m_Layer: 0
   m_Name: Gunslinger
   m_TagString: Enemy
@@ -191,3 +192,30 @@ MonoBehaviour:
   ammo: 0
   bullet: {fileID: 9040381389663326732, guid: 8328fe77ec468ee4baebb3bad30fe059, type: 3}
   firePoint: {fileID: 1397500842473771556}
+--- !u!50 &8698728326544717854
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7943474876187757532}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

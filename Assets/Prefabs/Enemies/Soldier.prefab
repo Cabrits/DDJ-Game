@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8061551589301282288}
   - component: {fileID: 6138423268818415443}
   - component: {fileID: 6806839757348100330}
+  - component: {fileID: -1308013567853096812}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Enemy
@@ -191,3 +192,30 @@ MonoBehaviour:
   ammo: 0
   bullet: {fileID: 5354085412938474930, guid: 54a6b15bec9576f4cb0239ab9583616d, type: 3}
   firePoint: {fileID: 2784212353603695250}
+--- !u!50 &-1308013567853096812
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553450358482770400}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

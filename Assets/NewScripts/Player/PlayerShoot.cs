@@ -25,6 +25,15 @@ public class PlayerShoot : MonoBehaviour{
             Shoot();
         }
 
+        if(Input.GetKeyDown("r")){
+            if(maxAmmo != ammo){
+                nextFireTime = Time.time + reloadSpeed;
+                ammo = maxAmmo;
+
+                Debug.Log("Reloading");
+            }
+        }
+
         bulletForce = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().bulletForce;
         maxAmmo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().maxAmmo;
         fireRate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().fireRate;
