@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Item : MonoBehaviour
-{
+public class Item : MonoBehaviour{
     public ItemEffect itemEffect;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<PlayerStats>(out PlayerStats playerComponent)) 
-        {
-            if(itemEffect is HealthPotion)
-            {
-                collision.gameObject.TryGetComponent<Health>(out Health health);
+    private void OnTriggerEnter2D(Collider2D collision){
+
+        GameObject player = collision.gameObject;
+        
+        if (player.TryGetComponent<PlayerStats>(out PlayerStats playerStats)) {
+            if(itemEffect is HealthPotion){
+                player.TryGetComponent<Health>(out Health health);
                 if(health.currentHealth == health.maxHealth)
                 {
 
@@ -21,13 +20,15 @@ public class Item : MonoBehaviour
                 else
                 {
                     Destroy(this.gameObject);
-                    itemEffect.Apply(collision.gameObject);
+                    itemEffect.Apply(player);
                 }
             }
-            else
-            {
+            else{
                 Destroy(this.gameObject);
-                itemEffect.Apply(collision.gameObject);
+                itemEffect.Apply(player);
+
+                player.GetComponent<PlayerGrowth>().Grow(player);
+                playerStats.powerUpCount += 1;
             }
         }
     }

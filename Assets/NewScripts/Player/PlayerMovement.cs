@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour{
     private float moveSpeed;
     [SerializeField] public Rigidbody2D rb;
 
     private Vector2 moveDirection;
+
 
     void Update(){
         float moveX = Input.GetAxisRaw("Horizontal");
