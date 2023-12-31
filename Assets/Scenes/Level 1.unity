@@ -8768,6 +8768,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1296664899150060720, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296664899150060720, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296664899150060720, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 454.21
       objectReference: {fileID: 0}
@@ -9557,7 +9565,7 @@ GameObject:
   - component: {fileID: 1705803757}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
