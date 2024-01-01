@@ -21,7 +21,6 @@ public class PlayerBullet : MonoBehaviour{
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Bullet")){
-            Destroy(gameObject);
         }
     }
 }
