@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerShoot : MonoBehaviour{
 
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public TextMeshProUGUI ammoText;
+    public Image loadingCircle;
 
     private float nextFireTime;
 
@@ -38,6 +42,12 @@ public class PlayerShoot : MonoBehaviour{
         maxAmmo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().maxAmmo;
         fireRate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().fireRate;
         reloadSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().reloadSpeed;
+
+        if (ammoText != null)
+        {
+            ammoText.text = "Ammo: " + ammo.ToString();
+        }
+
     }
 
     void Shoot(){

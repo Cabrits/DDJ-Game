@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Inventory {
 
-    private List<Item> itemList;
+    public event EventHandler OnItemListChanged;
+
+    private List<ItemInventory> itemList;
 
     public Inventory (){
-        itemList = new List<Item>();
+        itemList = new List<ItemInventory>();
 
-        Debug.Log("Working");
+        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.Sword, amount = 1});
+        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.HealthPotion, amount = 1});
+        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.ManaPotion, amount = 1});
+        Debug.Log(itemList.Count);
     }
 
     
-    public void AddItem(Item item){
+    public void AddItem(ItemInventory item){
         itemList.Add(item);
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public List<ItemInventory> GetItemList(){
+        return itemList;
     }
 }
