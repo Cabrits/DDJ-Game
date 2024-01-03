@@ -12,9 +12,9 @@ public class Inventory {
     public Inventory (){
         itemList = new List<ItemInventory>();
 
-        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.Sword, amount = 1});
-        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.HealthPotion, amount = 1});
-        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.ManaPotion, amount = 1});
+        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.AmmoBuff, amount = 1});
+        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.BulletSpeedBuff, amount = 1});
+        AddItem(new ItemInventory {itemType = ItemInventory.ItemType.FireRateBuff, amount = 1});
         Debug.Log(itemList.Count);
     }
 
@@ -22,6 +22,10 @@ public class Inventory {
     public void AddItem(ItemInventory item){
         itemList.Add(item);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void RemoveItem(ItemInventory item){
+        
     }
 
     public List<ItemInventory> GetItemList(){

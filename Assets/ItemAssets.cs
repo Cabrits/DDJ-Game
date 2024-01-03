@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ItemAssets : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public static ItemAssets Instance{get; private set;}
+
+    private void Awake(){
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Sprite ammoBuffSprite;
+    public Sprite bulletSpeedBuffSprite;
+    public Sprite damagePowerupSprite;
+    public Sprite fireRateBuffSprite;
+    public Sprite healthPotionSprite;
+    public Sprite reloadSpeedBuffSprite;
+    public Sprite speedPowerupSprite;
+
+
 }
