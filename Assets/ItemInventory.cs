@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemInventory {
-    
+        
     public enum ItemType{
-        Sword,
+        AmmoBuff,
+        BulletSpeedBuff,
+        DamagePowerup,
+        FireRateBuff,
         HealthPotion,
-        ManaPotion,
-        Coin,
-        Medkit,
+        ReloadSpeedBuff,
+        SpeedPowerup
     }
 
     public ItemType itemType;
