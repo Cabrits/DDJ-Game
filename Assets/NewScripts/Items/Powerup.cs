@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -24,6 +25,27 @@ public class Item : MonoBehaviour{
                 }
             }
             else{
+                Inventory inv = player.GetComponent<PlayerInventory>().inventory;
+                if(itemEffect is SpeedBuff){   
+                    inv.AddItem(new ItemInventory {itemType = ItemInventory.ItemType.SpeedPowerup, amount = 1});
+                } else if(itemEffect is AmmoBuff){
+                    inv.AddItem(new ItemInventory {itemType = ItemInventory.ItemType.AmmoBuff, amount = 1});
+
+                } else if(itemEffect is BulletSpeedBuff){
+                    inv.AddItem(new ItemInventory {itemType = ItemInventory.ItemType.BulletSpeedBuff, amount = 1});
+
+                } else if(itemEffect is DamageBuff){
+                    inv.AddItem(new ItemInventory {itemType = ItemInventory.ItemType.DamagePowerup, amount = 1});
+
+                } else if(itemEffect is FireRateBuff){
+                    inv.AddItem(new ItemInventory {itemType = ItemInventory.ItemType.FireRateBuff, amount = 1});
+
+                } else if(itemEffect is ReloadSpeed){
+                    inv.AddItem(new ItemInventory {itemType = ItemInventory.ItemType.ReloadSpeedBuff, amount = 1});
+
+                }
+                
+
                 Destroy(this.gameObject);
                 itemEffect.Apply(player);
 
