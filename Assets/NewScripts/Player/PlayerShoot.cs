@@ -21,12 +21,18 @@ public class PlayerShoot : MonoBehaviour{
 
     public AudioSource audioSource;
 
+    private Vector2 mousePos;
+
+    public Camera cam;
+
     void Start(){
         maxAmmo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().maxAmmo;
         ammo = maxAmmo;
     }
 
     void Update(){
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        
         if(nextFireTime < Time.time){
             changeAmmoDisplay();
         }
@@ -52,14 +58,16 @@ public class PlayerShoot : MonoBehaviour{
     }
 
     void Shoot(){
-        if(nextFireTime < Time.time)
-        {
+        if(nextFireTime < Time.time){
             audioSource.Play();
             changeAmmoDisplay();
+
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-            //rb.velocity = firePoint.up * bulletForce;
+            Vector2 shootDirection = (mousePos - rb.position).normalized;
+            rb.rotation = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+            rb.AddForce(shootDirection * bulletForce, ForceMode2D.Impulse);
 
             Destroy(bullet, 2);
 
