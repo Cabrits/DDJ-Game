@@ -18234,6 +18234,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2088987703178020166, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 499856960}
+    - target: {fileID: 2088987703178020166, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 1693503676}
