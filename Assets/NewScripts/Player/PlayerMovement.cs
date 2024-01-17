@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject uiInventory;
 
     private bool isDashing = false;
-    private float dashTime = 0.2f;
+    private float dashTime = 0.15f;
     private float dashTimer = 0f;
     private bool canDash = true;
     private float dashCooldown = 1f; // Set the cooldown time as needed
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isInventoryOpen){
             HandleMovement();
             HandleDash();
-            
+
             if(moveDirection.x != 0 || moveDirection.y != 0){
                 if(!audioSource.isPlaying){
                     audioSource.Play();
@@ -81,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
                 isDashing = false;
                 canDash = false;
                 StartCoroutine(DashCooldown());
-                // You can add additional logic after the dash ends
             }
         }
     }
@@ -90,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isDashing = true;
         dashTimer = dashTime;
-        float dashDistance = 5f;
+        float dashDistance = 32f;
 
         Vector2 dashDirection = moveDirection.normalized;
         Vector2 dashTarget = (Vector2)transform.position + dashDirection * dashDistance;
