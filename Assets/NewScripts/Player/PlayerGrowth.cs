@@ -12,4 +12,5 @@ public class PlayerGrowth : MonoBehaviour{
     public void Shrink(GameObject target){
        target.transform.localScale -= new Vector3(0.2f, 0.2f);
     }
+
 }

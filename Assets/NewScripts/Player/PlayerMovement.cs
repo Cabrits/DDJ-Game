@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     private Vector2 moveDirection;
 
+    public AudioSource audioSource;
     private bool isInventoryOpen = false;
     public GameObject uiInventory; 
 
@@ -21,6 +22,14 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().playerSpeed;
 
             moveDirection = new Vector2(moveX, moveY).normalized;
+
+            if(moveDirection.x != 0 || moveDirection.y != 0){
+                if(!audioSource.isPlaying){
+                    audioSource.Play();
+                }
+            } else {
+                audioSource.Stop();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.I))

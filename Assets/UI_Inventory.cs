@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using CodeMonkey.Utils;
@@ -13,6 +14,7 @@ public class UI_Inventory : MonoBehaviour
     private void Awake(){
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+        RefreshInventoryItems();
     }
 
 
@@ -28,11 +30,12 @@ public class UI_Inventory : MonoBehaviour
     }
 
     private void RefreshInventoryItems(){
-
-        foreach(Transform child in itemSlotContainer) {
-            if (child == itemSlotTemplate) continue;
-            Destroy(child.gameObject);
-        }
+        try {
+            foreach(Transform child in itemSlotContainer) {
+                if (child == itemSlotTemplate) continue;
+                Destroy(child.gameObject);
+            }
+        
 
         int x = 0;
         int y = 0;
@@ -43,19 +46,22 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.gameObject.SetActive(true);
 
             itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () => {
-                Debug.Log("Do Something!");
-                //inventory.RemoveItem(item);
+                //Debug.Log("Do Something!");
+                inventory.RemoveItem(item);
             };
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
             image.sprite = item.GetSprite();
             x++;
-            if (x > 4){
+            if (x >= 4){
                 x = 0;
-                y++;
+                y--;
             }
         }
-    }
+    } catch (Exception e){
+            Debug.Log(e);
+        }
+    } 
 
 }

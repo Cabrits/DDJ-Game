@@ -11,4 +11,9 @@ public class StaticData : MonoBehaviour
     public static float fireRate;
     public static float reloadSpeed; 
     public static float bulletForce;
+
+    public static Vector3 playersize;
+
+    public static List<ItemInventory> itemList;
+
 }

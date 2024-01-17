@@ -15,6 +15,7 @@ public class AIFollowAndShoot : MonoBehaviour
     public float ReloadSpeed;
     public int MaxAmmo;
     public int ammo;
+    public AudioSource audioSource;
 
     private float nextFireTime;
 
@@ -43,6 +44,7 @@ public class AIFollowAndShoot : MonoBehaviour
         {
             transform.right = target.position - transform.position;
             GameObject bulletObject = Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
+            audioSource.Play();
             ammo -= 1;
             if(ammo == 0)
             {

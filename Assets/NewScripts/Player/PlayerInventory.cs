@@ -8,9 +8,19 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private UI_Inventory inventoryUI;
     void Start()
     {
-           inventory = new Inventory();
-           inventoryUI.SetInventory(inventory);
+        inventory = new Inventory();
+        inventoryUI.SetInventory(inventory);
+        if(gameObject.scene.name != "Level 1"){
+            LoadSceneKeepValue();
+        }
     }
-    
 
+    public void SaveSceneKeepValue(){
+        StaticData.itemList = inventory.GetItemList();
+    }
+
+    public void LoadSceneKeepValue(){
+        Debug.Log("I'mHERE");
+        inventory.SetItemList(StaticData.itemList);
+    }
 }

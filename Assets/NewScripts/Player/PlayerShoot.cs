@@ -19,21 +19,27 @@ public class PlayerShoot : MonoBehaviour{
     private float fireRate;
     private float reloadSpeed;
 
+    public AudioSource audioSource;
+
     void Start(){
         maxAmmo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().maxAmmo;
         ammo = maxAmmo;
     }
 
     void Update(){
+        if(nextFireTime < Time.time){
+            changeAmmoDisplay();
+        }
+
         if (Input.GetButtonDown("Fire1")){
             Shoot();
         }
 
         if(Input.GetKeyDown("r")){
             if(maxAmmo != ammo){
+                ammoText.text = "Reloading...";
                 nextFireTime = Time.time + reloadSpeed;
-                ammo = maxAmmo;
-
+                ammo = maxAmmo; 
                 Debug.Log("Reloading");
             }
         }
@@ -43,16 +49,13 @@ public class PlayerShoot : MonoBehaviour{
         fireRate = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().fireRate;
         reloadSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGunStats>().reloadSpeed;
 
-        if (ammoText != null)
-        {
-            ammoText.text = "Ammo: " + ammo.ToString();
-        }
-
     }
 
     void Shoot(){
         if(nextFireTime < Time.time)
         {
+            audioSource.Play();
+            changeAmmoDisplay();
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
@@ -63,6 +66,7 @@ public class PlayerShoot : MonoBehaviour{
             ammo -= 1;
             if (ammo == 0)
             {
+                ammoText.text = "Reloading...";
                 nextFireTime = Time.time + reloadSpeed;
                 ammo = maxAmmo;
             }
@@ -70,6 +74,13 @@ public class PlayerShoot : MonoBehaviour{
             {
                 nextFireTime = Time.time + (1 / fireRate);
             }
+        }
+    }
+
+    void changeAmmoDisplay(){
+        if (ammoText != null)
+        {
+            ammoText.text = "Ammo: " + ammo.ToString();
         }
     }
 }

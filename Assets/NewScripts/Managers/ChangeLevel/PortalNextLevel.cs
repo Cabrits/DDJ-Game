@@ -10,6 +10,7 @@ public class PortalNextLevel : MonoBehaviour
         if(collision.gameObject.CompareTag("Player")){
             GameObject.FindWithTag("Player").GetComponent<PlayerStats>().SaveSceneKeepValue();
             GameObject.FindWithTag("Player").GetComponent<PlayerGunStats>().SaveSceneKeepValue();
+            GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().SaveSceneKeepValue();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

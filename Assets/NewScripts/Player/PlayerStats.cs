@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour{
 
     public float playerSpeed;
 
+
     public int powerUpCount;
 
 
@@ -17,10 +18,12 @@ public class PlayerStats : MonoBehaviour{
 
     public void SaveSceneKeepValue(){
         StaticData.playerSpeed = playerSpeed;
+        StaticData.playersize = GameObject.FindWithTag("Player").transform.localScale;
     }
 
     public void LoadSceneKeepValue(){
         playerSpeed = StaticData.playerSpeed;
+        GameObject.FindWithTag("Player").transform.localScale = StaticData.playersize;
     }
 
     public void IncreasePowerUpCount(){
