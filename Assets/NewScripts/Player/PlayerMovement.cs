@@ -85,21 +85,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator Dash()
-    {
+    IEnumerator Dash(){
         isDashing = true;
         dashTimer = dashTime;
-        float dashDistance = 32f;
+        float dashDistance = 12f;
 
         Vector2 dashDirection = moveDirection.normalized;
         Vector2 dashTarget = (Vector2)transform.position + dashDirection * dashDistance;
 
-        while (isDashing)
-        {
+        while (isDashing){
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dashDirection, dashDistance);
             transform.position = Vector2.MoveTowards(transform.position, dashTarget, dashDistance * Time.deltaTime);
             yield return null;
+            }
         }
-    }
+
 
     IEnumerator DashCooldown()
     {
@@ -107,3 +107,5 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 }
+
+
