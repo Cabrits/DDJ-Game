@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Health : MonoBehaviour, IHealth<int>{
 
@@ -27,13 +29,11 @@ public class Health : MonoBehaviour, IHealth<int>{
     }
 
     public void Kill(){
-        if(this.gameObject.CompareTag("Player")){
-            // Code to losing screen.
+        if(gameObject.GetComponent<PlayerAim>()){
+            SceneManager.LoadScene(5);
         }else{
             GameObject.Find("Managers").GetComponent<RoundManager>().KilledEnemy(this.gameObject);
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
-
     }
-    
 }
