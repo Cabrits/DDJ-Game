@@ -12,6 +12,11 @@ public class PortalNextLevel : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<PlayerGunStats>().SaveSceneKeepValue();
             GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().SaveSceneKeepValue();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if(gameObject.scene.name == "Level 1"){
+                StaticData.level = 2;
+            } else if (gameObject.scene.name == "Tutorial"){
+                StaticData.level = 1;
+            }
         }
     }
 }

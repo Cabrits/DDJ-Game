@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     {
         inventory = new Inventory();
         inventoryUI.SetInventory(inventory);
-        if(gameObject.scene.name != "Level 1"){
+        if(gameObject.scene.name != "Level 1" && gameObject.scene.name != "Tutorial"){
             LoadSceneKeepValue();
         }
     }

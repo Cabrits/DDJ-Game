@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour{
 
 
     void Start(){
-        if(gameObject.scene.name != "Level 1"){
+        if(gameObject.scene.name != "Level 1" && gameObject.scene.name != "Tutorial"){
             LoadSceneKeepValue();
         }
     }

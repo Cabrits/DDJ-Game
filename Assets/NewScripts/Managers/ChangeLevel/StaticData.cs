@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class StaticData : MonoBehaviour
@@ -16,4 +17,5 @@ public class StaticData : MonoBehaviour
 
     public static List<ItemInventory> itemList;
 
+    public static int level;
 }

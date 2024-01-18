@@ -11,7 +11,7 @@ public class PlayerGunStats : MonoBehaviour
     public float bulletForce = 20f;
 
     void Start(){
-        if(gameObject.scene.name != "Level 1"){
+        if(gameObject.scene.name != "Level 1" && gameObject.scene.name != "Tutorial"){
             LoadSceneKeepValue();
         }
     }
