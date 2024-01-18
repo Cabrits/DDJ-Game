@@ -13,6 +13,9 @@ public class PlayerShoot : MonoBehaviour{
 
     private float nextFireTime;
 
+    private bool isInventoryOpen = false;
+
+
     private float bulletForce;
     private int maxAmmo;
     public int ammo;
@@ -37,8 +40,16 @@ public class PlayerShoot : MonoBehaviour{
             changeAmmoDisplay();
         }
 
-        if (Input.GetButtonDown("Fire1")){
-            Shoot();
+        if (!isInventoryOpen){
+
+            if (Input.GetButtonDown("Fire1")){
+                Shoot();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isInventoryOpen = !isInventoryOpen;
         }
 
         if(Input.GetKeyDown("r")){
