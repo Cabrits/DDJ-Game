@@ -11,52 +11,39 @@ public class PlayerMovement : MonoBehaviour
     private bool isInventoryOpen = false;
     public GameObject uiInventory;
 
-    private bool isDashing = false;
-    private float dashTime = 0.15f;
-    private float dashTimer = 0f;
-    private bool canDash = true;
-    private float dashCooldown = 1f; // Set the cooldown time as needed
-
-    void Update()
-    {
+    void Update(){
         if (!isInventoryOpen){
             HandleMovement();
-            HandleDash();
 
             if(moveDirection.x != 0 || moveDirection.y != 0){
                 if(!audioSource.isPlaying){
                     audioSource.Play();
                 }
-            } else {
+            } else{
                 audioSource.Stop();
             }
             
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
+        if (Input.GetKeyDown(KeyCode.I)){
             ToggleInventory();
         }
     }
 
-    void FixedUpdate()
-    {
-        if (!isInventoryOpen)
-        {
+    void FixedUpdate(){
+        if (!isInventoryOpen){
             rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         }
     }
 
-    void ToggleInventory()
-    {
+    void ToggleInventory(){
         isInventoryOpen = !isInventoryOpen;
 
         uiInventory.SetActive(isInventoryOpen);
         rb.velocity = Vector2.zero;
     }
 
-    void HandleMovement()
-    {
+    void HandleMovement(){
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -65,47 +52,6 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
 
-    void HandleDash()
-    {
-        if (canDash && Input.GetKeyDown(KeyCode.Space) && !isDashing)
-        {
-            StartCoroutine(Dash());
-        }
-
-        if (isDashing)
-        {
-            dashTimer -= Time.deltaTime;
-
-            if (dashTimer <= 0f)
-            {
-                isDashing = false;
-                canDash = false;
-                StartCoroutine(DashCooldown());
-            }
-        }
-    }
-
-    IEnumerator Dash(){
-        isDashing = true;
-        dashTimer = dashTime;
-        float dashDistance = 12f;
-
-        Vector2 dashDirection = moveDirection.normalized;
-        Vector2 dashTarget = (Vector2)transform.position + dashDirection * dashDistance;
-
-        while (isDashing){
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dashDirection, dashDistance);
-            transform.position = Vector2.MoveTowards(transform.position, dashTarget, dashDistance * Time.deltaTime);
-            yield return null;
-            }
-        }
-
-
-    IEnumerator DashCooldown()
-    {
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
-    }
 }
 
 

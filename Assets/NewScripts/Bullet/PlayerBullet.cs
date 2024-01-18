@@ -20,6 +20,7 @@ public class PlayerBullet : MonoBehaviour{
         else if (collision.gameObject.CompareTag("Wall")){
             Destroy(gameObject);
         }
+
         else if (collision.gameObject.CompareTag("Bullet")){
         }
     }

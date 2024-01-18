@@ -53,7 +53,7 @@ public class PlayerShoot : MonoBehaviour{
         }
 
         if(Input.GetKeyDown("r")){
-            if(maxAmmo != ammo){
+            if(maxAmmo > ammo){
                 ammoText.text = "Reloading...";
                 nextFireTime = Time.time + reloadSpeed;
                 ammo = maxAmmo; 

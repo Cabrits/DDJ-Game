@@ -14286,6 +14286,14 @@ PrefabInstance:
       propertyPath: uiInventory
       value: 
       objectReference: {fileID: 947961837}
+    - target: {fileID: 6841042038570688635, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.598
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841042038570688635, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.033
+      objectReference: {fileID: 0}
     - target: {fileID: 7549636910138996813, guid: 28f914c42c8cf764da90566335c1c24a, type: 3}
       propertyPath: m_Name
       value: Player
