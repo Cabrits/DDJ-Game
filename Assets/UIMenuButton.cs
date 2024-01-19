@@ -21,7 +21,7 @@ public class UIMenuButton : MonoBehaviour
         if(StaticData.level == 1){
             SceneManager.LoadScene(2);
         } else if(StaticData.level == 2){
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
         }
     }
 }

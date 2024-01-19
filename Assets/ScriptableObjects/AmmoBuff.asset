@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0eb5ae6860cc94a960d8a4bbdab662, type: 3}
   m_Name: AmmoBuff
   m_EditorClassIdentifier: 
-  amount: 20
+  amount: 5

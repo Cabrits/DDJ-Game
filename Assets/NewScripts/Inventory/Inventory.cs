@@ -30,19 +30,19 @@ public class Inventory {
 
         if(item.itemType.ToString() == "AmmoBuff"){
             Debug.Log("This is an Ammo Buff");
-            player.GetComponent<PlayerGunStats>().maxAmmo -= 20;
+            player.GetComponent<PlayerGunStats>().maxAmmo -= 5;
         } else if(item.itemType.ToString() == "BulletSpeedBuff"){
             Debug.Log("This is an Bullet Speed Buff");
-            player.GetComponent<PlayerGunStats>().bulletForce -= 20;
+            player.GetComponent<PlayerGunStats>().bulletForce -= 5;
         } else if(item.itemType.ToString() == "DamagePowerup"){
             Debug.Log("This is an Damage Buff");
-            player.GetComponent<PlayerGunStats>().gunDamage -= 20;
+            player.GetComponent<PlayerGunStats>().gunDamage -= 10;
         } else if(item.itemType.ToString() == "FireRateBuff"){
             Debug.Log("This is an Fire Rate Buff");
             player.GetComponent<PlayerGunStats>().fireRate -= 10;
         } else if(item.itemType.ToString() == "ReloadSpeedBuff"){
             Debug.Log("This is an Reload Speed Buff");
-            player.GetComponent<PlayerGunStats>().reloadSpeed += 2;
+            player.GetComponent<PlayerGunStats>().reloadSpeed += (float) 0.4;
         } else if(item.itemType.ToString() == "SpeedPowerup"){
             Debug.Log("This is an Speed Buff");
             player.GetComponent<PlayerStats>().playerSpeed -= (float) 3.29;

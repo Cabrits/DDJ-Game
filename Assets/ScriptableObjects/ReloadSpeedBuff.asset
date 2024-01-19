@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7524d6992e22f734c96d0e0c757b194f, type: 3}
   m_Name: ReloadSpeedBuff
   m_EditorClassIdentifier: 
-  amount: 2
+  amount: 0.4
